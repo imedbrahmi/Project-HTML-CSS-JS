@@ -5,6 +5,7 @@ const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 
 
+
 //events listeners
 document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
@@ -41,6 +42,8 @@ function addTodo(event){
     trashButton.innerHTML = '<i class="fas fa-trash" ></i>';
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
+
+
     //append to list 
     todoList.appendChild(todoDiv);
 
@@ -166,3 +169,21 @@ function removeLocalTodos(todo){
 }
 
 
+// js for formulaire2 register
+
+(function form () {
+    'use strict'
+    const forms = document.querySelectorAll(".requires-validation");
+    Array.from(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+    
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+    
