@@ -4,13 +4,18 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 
+let numberOfItems = 3;
+let first = 0 ;
+let actualPage = 1;
 
+let long  = 0 ;
 
 //events listeners
 document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 filterOption.addEventListener("click", filterTodo );
+
 
 
 //functions
@@ -47,11 +52,11 @@ function addTodo(event){
     //append to list 
     todoList.appendChild(todoDiv);
 
-    //append to list 
-    todoList.appendChild(todoDiv);
 
     //clear todoInput value
     todoInput.value="";
+   // showList();
+   
 }
 
 function deleteCheck(e){
@@ -75,6 +80,74 @@ if(item.classList[0] === "complete-btn"){
 
 }
 }
+
+/* begin pagination
+
+function showList(){
+    let ListOfLi = "";
+    for(let i = first; i < first+numberOfItems;i++){
+      console.log(i);
+      if(i<todoList.length){
+        ListOfLi += `
+        <li>
+          ${todoList[i]}
+        </li>
+      `  
+      }
+    }
+    document.getElementsByClassName('todo-list').innerHTML=ListOfLi;
+    showPageInfo();
+
+  }
+
+
+ end pagination// 
+
+// function next
+function nextPage(){
+    if(first+numberOfItems<=localStorage.getItem("todos").length){
+    first+=numberOfItems;
+    actualPage ++;
+    getTodos();
+    }
+  }
+// end function next
+
+// begin function previous
+function previous(){
+    if(first-numberOfItems >= 0){
+      first-=numberOfItems
+      actualPage --;
+      getTodos();
+    }
+  }
+//  end function previous
+
+// begin show page 1 
+function firstPage(){
+    first = 0
+    actualPage = 1;
+    showList();
+}
+// end show page 1
+
+// begin show last page
+let maxPages =   Math.ceil(localStorage.getItem("todos").length / numberOfItems );
+ 
+function lastPage(){
+  first = (maxPages * numberOfItems)-numberOfItems;
+  actualPage = maxPages;
+  showList(); 
+}
+// end show last page
+
+//begin show page info
+function showPageInfo(){
+    document.getElementById('pageInfo').innerHTML = `
+      Page ${actualPage} / ${maxPages}
+    `
+  }
+end sow page info */
 
 function filterTodo(e){
    const todos = todoList.childNodes;
@@ -123,7 +196,21 @@ function getTodos(){
     } else {
         todos = JSON.parse(localStorage.getItem("todos"));
     }
-    todos.forEach(function(todo){
+    let ListOfLi = "";
+    for(let i = first; i < first+numberOfItems;i++){
+      console.log(i);
+      if(i<todos.length){
+        ListOfLi += `
+        <li>
+          ${todos[i]}
+        </li>
+      `  
+      }
+    }
+    document.getElementsByClassName('todo-list').innerHTML=ListOfLi;
+    showPageInfo();
+
+    /*todos.forEach(function(todo){
         //todo DIV
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
@@ -152,7 +239,9 @@ function getTodos(){
     //append to list 
     todoList.appendChild(todoDiv);
 
-    });
+
+    })*/;
+
 }
 
 function removeLocalTodos(todo){
@@ -166,14 +255,18 @@ function removeLocalTodos(todo){
     const todoIndex = todo.children[0].innerText;
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem("todos", JSON.stringify(todos));
-}
+    long= JSON.parse(localStorage.getItem("todos")).length;
+    console.log("long"+long);
+   }
 
 
 // js for formulaire2 register
 
 (function form () {
     'use strict'
+   
     const forms = document.querySelectorAll(".requires-validation");
+   
     Array.from(forms)
       .forEach(function (form) {
         form.addEventListener('submit', function (event) {
@@ -181,9 +274,15 @@ function removeLocalTodos(todo){
             event.preventDefault()
             event.stopPropagation()
           }
-    
+          
           form.classList.add('was-validated')
+          
+         
         }, false)
+       
       })
+      
     })()
+    
+    
     

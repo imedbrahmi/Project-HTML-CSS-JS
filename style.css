@@ -21,6 +21,13 @@ header,
     align-items: center;
     width: 50%;
     margin-left: 20px;
+   
+}
+
+h1{
+    margin: auto;
+    color: #d88771;
+    font-weight: bolder;
 }
 
 .form1 input, .form1 button {
@@ -28,6 +35,7 @@ header,
     font-size: 2rem;
     border: none;
     background: white;
+    
    
 }
 
@@ -49,7 +57,7 @@ header,
     display: flex;
     justify-content: left;
     align-items: center ;
-   
+  
     width: 50%;
 
 }
@@ -300,12 +308,31 @@ select{
 
 
 .section2{
-  
+
     width: 40%;
     margin: auto;
     flex: 2;
     margin-left: 50%;
     margin-top: -20%;
+    background-color: #ff606e;
+}
+
+
+
+.form-body{
+
+    position: fixed;
+    left: 800px;
+    bottom: 10px;
+
+}
+
+.bg-yellow {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+
 }
 
 

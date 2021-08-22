@@ -44,6 +44,16 @@
     <div class="todo-continer">
         <ul class="todo-list"></ul>
     </div>
+    <!-- begin bouton pagination
+    <div>
+      <button class="btn" onclick="firstPage()">|<</button>
+          <button class="btn" onclick="previous()">
+            <</button>
+              <span id="pageInfo"></span>
+              <button class="btn" onclick="nextPage()">></button>
+              <button class="btn" onclick="lastPage()">>|</button>
+    </div>
+                 end bouton pagination-->
  
 </section>
     <!-- end formulaire1-->
@@ -61,7 +71,7 @@
                     <form class="requires-validation" novalidate>
 
                         <div class="col-md-12">
-                           <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                           <input class="form-control" id="tt" type="text" name="name"  placeholder="Full Name" required>
                            <div class="valid-feedback">Username field is valid!</div>
                            <div class="invalid-feedback">Username field cannot be blank!</div>
                         </div>
@@ -116,7 +126,7 @@
               
 
                         <div class="form-button mt-3">
-                            <button id="submit" type="submit" class="btn btn-primary">Register</button>
+                            <button  onclick="myFunction()"id="submit" type="submit" class="btn btn-primary">Register</button>
                             <button id="delete" type="reset" class="btn btn-primary">Delete</button>
                         </div>
 
@@ -142,32 +152,32 @@
       <!-- Section: Social media -->
       <section class="mb-4">
         <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
           ><i class="fab fa-facebook-f"></i
         ></a>
   
         <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
           ><i class="fab fa-twitter"></i
         ></a>
   
         <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
           ><i class="fab fa-google"></i
         ></a>
   
         <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/?hl=fr" role="button"
           ><i class="fab fa-instagram"></i
         ></a>
   
         <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/imed-brahmi-8185a8173/" role="button"
           ><i class="fab fa-linkedin-in"></i
         ></a>
   
         <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/imedbrahmi" role="button"
           ><i class="fab fa-github"></i
         ></a>
       </section>
@@ -177,8 +187,8 @@
   
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">Imed BRAHMI</a>
+      © 2021 Copyright:
+      <a class="text-white">Imed BRAHMI</a>
     </div>
     <!-- Copyright -->
   </footer>
